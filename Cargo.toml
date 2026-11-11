@@ -1,0 +1,24 @@
+[package]
+name = "dropzone"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+macroquad = "0.4"
+
+[profile.dev]
+opt-level = 2
+
+[profile.release]
+opt-level = 3
+lto = true
+
+# Android build (cargo-quad-apk). Check its docs if keys change between versions.
+[package.metadata.android]
+package_name = "com.example.dropzone"
+label = "Dropzone"
+fullscreen = true
+build_targets = ["aarch64-linux-android"]
+
+[package.metadata.android.activity_attributes]
+"android:screenOrientation" = "userLandscape"
